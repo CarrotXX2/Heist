@@ -38,13 +38,12 @@ public class PickUp : MonoBehaviour
         {
             if (dropped == false)
             {
-                dropped = true;
-                Instantiate(GameObject.Find(objectName), hand.transform.position, hand.transform.rotation);
+                dropped = true;             
                 GameObject objectToDrop = GameObject.Find(objectName);
                 Rigidbody rigidobj = objectToDrop.GetComponent<Rigidbody>();
                 rigidobj.isKinematic = false;
-                hasBeenPickedUp = false;
-                
+                objectToDrop.transform.SetParent(null);
+                hasBeenPickedUp = false;            
             }
 
         }

@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 351586047692036083}
   - component: {fileID: 249940174792047155}
   - component: {fileID: 5319968428136534175}
+  - component: {fileID: 2449049918865795261}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -360,3 +361,19 @@ MonoBehaviour:
   headRot: {x: 0, y: 0, z: 0}
   rotSpeed: 200
   maxRotationX: 80
+--- !u!114 &2449049918865795261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534176658352306193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdbe52246211f64e92604e79dd794b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  hand: {fileID: 5275367657722833932}
+  rayLength: 100
+  dropped: 0
