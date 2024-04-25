@@ -30,5 +30,9 @@ public class PickUp : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKey(KeyCode.G))
+        {
+          
+        }
     }
 }
