@@ -11,6 +11,7 @@ public class PickUp : MonoBehaviour
     public float rayLength;
     public RaycastHit hit;
     public bool dropped;
+    public float throwForce;
 
     private bool hasBeenPickedUp = false;
 
@@ -38,14 +39,27 @@ public class PickUp : MonoBehaviour
         {
             if (dropped == false)
             {
-                dropped = true;             
+                dropped = true;
                 GameObject objectToDrop = GameObject.Find(objectName);
                 Rigidbody rigidobj = objectToDrop.GetComponent<Rigidbody>();
                 rigidobj.isKinematic = false;
                 objectToDrop.transform.SetParent(null);
-                hasBeenPickedUp = false;            
+                hasBeenPickedUp = false;
             }
-
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            if (dropped == false)
+            {
+                dropped = true;
+                GameObject objectToDrop = GameObject.Find(objectName);
+                Rigidbody rigidobj = objectToDrop.GetComponent<Rigidbody>();
+                rigidobj.isKinematic = false;
+                objectToDrop.transform.SetParent(null);
+                rigidobj.velocity = Vector3.zero; // Reset the velocity
+                rigidobj.AddForce(transform.forward * throwForce, ForceMode.Impulse); // Apply throw force
+                hasBeenPickedUp = false;
+            }
         }
     }
 }
