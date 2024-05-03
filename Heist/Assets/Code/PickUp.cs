@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class PickUp : MonoBehaviour
     public RaycastHit hit;
     public bool dropped;
     public float throwForce;
+    public BoxCollider col;
 
     private bool hasBeenPickedUp = false;
 
@@ -25,6 +27,8 @@ public class PickUp : MonoBehaviour
                 {
                     objectName = hit.transform.gameObject.name;
                     GameObject objectToPickup = GameObject.Find(objectName);
+                    col = objectToPickup.GetComponent<BoxCollider>();
+                    col.enabled = false;
                     objectToPickup.transform.position = hand.position;
                     objectToPickup.transform.rotation = hand.rotation;
                     objectToPickup.transform.SetParent(hand); // Set the parent to the hand
@@ -43,6 +47,7 @@ public class PickUp : MonoBehaviour
                 GameObject objectToDrop = GameObject.Find(objectName);
                 Rigidbody rigidobj = objectToDrop.GetComponent<Rigidbody>();
                 rigidobj.isKinematic = false;
+                col.enabled = true;
                 objectToDrop.transform.SetParent(null);
                 hasBeenPickedUp = false;
             }
@@ -54,6 +59,7 @@ public class PickUp : MonoBehaviour
                 dropped = true;
                 GameObject objectToDrop = GameObject.Find(objectName);
                 Rigidbody rigidobj = objectToDrop.GetComponent<Rigidbody>();
+                col.enabled = true;
                 rigidobj.isKinematic = false;
                 objectToDrop.transform.SetParent(null);
                 rigidobj.velocity = Vector3.zero; // Reset the velocity
