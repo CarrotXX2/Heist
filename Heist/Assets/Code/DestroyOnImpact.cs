@@ -16,7 +16,7 @@ public class DestroyOnImpact : MonoBehaviour
         if (collision.relativeVelocity.magnitude >= destroyThreshold)
         {
             Instantiate(particlePrefab, transform.position, transform.rotation);
-            StartCoroutine(DestroyGlassAfterDelay(3f));
+            StartCoroutine(DestroyGlassAfterDelay(2f));
             glass.SetActive(false);
             AudioSource.PlayClipAtPoint(soundclip, transform.position);
         }
@@ -24,6 +24,7 @@ public class DestroyOnImpact : MonoBehaviour
 
     IEnumerator DestroyGlassAfterDelay(float delay)
     {
+
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
