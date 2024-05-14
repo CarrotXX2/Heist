@@ -38,7 +38,6 @@ Transform:
   m_Children:
   - {fileID: 6787448330611539343}
   - {fileID: 5275367657722833932}
-  - {fileID: 7662291908786786176}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8592665429184852766
@@ -188,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921bc804bab2e9c4e83c4ea7bb61bd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashLight: {fileID: 2808238252056864148}
+  flashlight: {fileID: 0}
 --- !u!1 &2808238252056864148
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,12 +214,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2808238252056864148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.597, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.008000135, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2843735974832107533}
+  m_Father: {fileID: 6787448330611539343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &2044813969924213413
 Light:
@@ -371,7 +370,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.589, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7662291908786786176}
   m_Father: {fileID: 2843735974832107533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1795387635714382070
