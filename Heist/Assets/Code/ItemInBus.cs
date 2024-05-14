@@ -19,7 +19,7 @@ public class ItemInBus : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickable")&& !full)
+        if (other.gameObject.CompareTag("Pickable")&& ! full)
         {
             ObjectVal script = other.gameObject.GetComponent<ObjectVal>();
             if (script != null && pickupSC.dropped)

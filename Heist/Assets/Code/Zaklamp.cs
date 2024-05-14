@@ -5,29 +5,20 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class Zaklamp : MonoBehaviour
 {
-    public GameObject flashLight;
-    bool flashOn;
-    // Start is called before the first frame update
+    public Light flashlight;
+
     void Start()
     {
-        
+        // Make sure flashlight is off when the game starts
+        flashlight.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.F))
+        // Toggle flashlight on/off when the F key is pressed
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!flashOn)
-            {
-                flashLight.SetActive(true);
-                flashOn = true;
-            }
-            else
-            { 
-              flashLight.SetActive(false);
-                flashOn = false;
-            }
+            flashlight.enabled = !flashlight.enabled;
         }
     }
 }
