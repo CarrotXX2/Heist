@@ -9,13 +9,11 @@ public class Zaklamp : MonoBehaviour
 
     void Start()
     {
-        // Make sure flashlight is off when the game starts
         flashlight.enabled = false;
     }
 
     void Update()
     {
-        // Toggle flashlight on/off when the F key is pressed
         if (Input.GetKeyDown(KeyCode.F))
         {
             flashlight.enabled = !flashlight.enabled;
