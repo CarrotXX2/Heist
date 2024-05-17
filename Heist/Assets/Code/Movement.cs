@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class MoveMent : MonoBehaviour
@@ -15,8 +16,8 @@ public class MoveMent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        rb = GetComponent<Rigidbody>();
+            Cursor.lockState = CursorLockMode.Locked;
+            rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
