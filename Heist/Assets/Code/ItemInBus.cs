@@ -14,6 +14,7 @@ public class ItemInBus : MonoBehaviour
         {
             full = true;
         }
+        print(inventory);
         print("Current Money: " + money);
     }
 
@@ -31,5 +32,9 @@ public class ItemInBus : MonoBehaviour
 
             }
         }
+    }
+    public void BusUp()
+    {
+        inventory += 5;   
     }
 }

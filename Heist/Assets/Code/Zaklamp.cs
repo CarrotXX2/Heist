@@ -6,6 +6,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class Zaklamp : MonoBehaviour
 {
     public Light flashlight;
+    public bool HasBought = false;
 
     void Start()
     {
