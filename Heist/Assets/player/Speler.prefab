@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7296316957879491796}
   - component: {fileID: 5768180401605096313}
   - component: {fileID: 5191557791856527876}
+  - component: {fileID: 2159077683998508889}
   m_Layer: 0
   m_Name: Speler
   m_TagString: Untagged
@@ -188,6 +189,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashlight: {fileID: 0}
+  HasBought: 0
+--- !u!114 &2159077683998508889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554725816655823142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977684ef82911634186ea59bf94a73f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 0}
+  isPaused: 0
 --- !u!1 &2808238252056864148
 GameObject:
   m_ObjectHideFlags: 0
