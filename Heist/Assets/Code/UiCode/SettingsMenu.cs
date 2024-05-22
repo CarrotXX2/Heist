@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -84,5 +85,10 @@ public class SettingsMenu : MonoBehaviour
     {
         settings.enabled = false;
         main.enabled = true;
+    }
+    public void playclicked()
+    {
+        SceneManager.LoadScene("Silver");
+
     }
 }
