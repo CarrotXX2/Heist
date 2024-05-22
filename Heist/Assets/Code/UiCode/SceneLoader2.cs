@@ -7,7 +7,7 @@ public class SceneLoader2 : MonoBehaviour
 {
     public void playclicked()
     {
-        SceneManager.LoadScene("Buy Menu1");
+        SceneManager.LoadScene("BuyMenu1");
 
     }
 }
