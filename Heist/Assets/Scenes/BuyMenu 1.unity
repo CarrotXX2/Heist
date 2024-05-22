@@ -350,7 +350,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1125380748}
-  - {fileID: 1940992667}
   - {fileID: 507512967}
   m_Father: {fileID: 98456836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -379,7 +378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 98d05c1ebb4394946bbf1177607c1db1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 94d4b62925337764caa7c304292bf7ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1290,8 +1289,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1831,6 +1830,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1940992667}
   - {fileID: 479747489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1859,6 +1859,8 @@ MonoBehaviour:
   FlashPrice: 100
   car: {fileID: 588189153}
   FlashLight: {fileID: 744898630}
+  buySound: {fileID: 8300000, guid: d3083026b4f54254baf33e8226da5015, type: 3}
+  Owned: 0
 --- !u!1 &744898630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4068473673107993390, guid: 4ae5f6b4aebc40748a51323361a53d7a,
@@ -2269,7 +2271,7 @@ PrefabInstance:
     - target: {fileID: 5298282391066757338, guid: 0972c967e537ddc4993ff47dc18efe2a,
         type: 3}
       propertyPath: money
-      value: 1000000
+      value: 1e+12
       objectReference: {fileID: 0}
     - target: {fileID: 6747071937855943959, guid: 0972c967e537ddc4993ff47dc18efe2a,
         type: 3}
@@ -2439,7 +2441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.073735714, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3160,7 +3162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.06470597, g: 0.5, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4581,7 +4583,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -94.521545, y: -92.62964, z: -107.75458, w: -23.945457}
+  m_margin: {x: -94.521545, y: -92.62964, z: -107.75458, w: -1.2204285}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4607,11 +4609,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 65751009}
+  m_Father: {fileID: 681166023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.08777506}
-  m_AnchorMax: {x: 0.5, y: 0.08777506}
-  m_AnchoredPosition: {x: 312.5, y: -130.95474}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036932469 stripped

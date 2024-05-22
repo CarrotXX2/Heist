@@ -657,6 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashlight: {fileID: 206506725}
+  HasBought: 0
 --- !u!1 &389957847
 GameObject:
   m_ObjectHideFlags: 0
