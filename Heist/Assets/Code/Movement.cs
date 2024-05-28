@@ -11,7 +11,7 @@ public class MoveMent : MonoBehaviour
     public float walkspeed;
     public float sprintspeed;
     private Rigidbody rb;
-    public float jumpforce = 5f;
+    public float jumpforce = 6f;
     public bool isSprinting;
     // Start is called before the first frame update
     void Start()

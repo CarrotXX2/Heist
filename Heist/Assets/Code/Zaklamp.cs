@@ -15,7 +15,7 @@ public class Zaklamp : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && HasBought)
         {
             flashlight.enabled = !flashlight.enabled;
         }

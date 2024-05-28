@@ -9,6 +9,7 @@ public class Buyscreen : MonoBehaviour
     public TMP_Text RobertBuy;
     public TMP_Text infoHolder;
     public TMP_Text carPriceText;
+    public TMP_Text CurrentMoney;
     public ItemInBus itemInBus;
     public Zaklamp zaklamp;
     public float carPrice = 100;
@@ -17,6 +18,7 @@ public class Buyscreen : MonoBehaviour
     public GameObject car;
     public GameObject FlashLight;
     public AudioClip buySound;
+    public AudioClip equip;
     public bool Owned;
     public GameObject robertSkin;
     public GameObject roberticaSkin;
@@ -36,6 +38,7 @@ public class Buyscreen : MonoBehaviour
     void Update()
     {
         carPriceText.text = "price: " + carPrice.ToString();
+        CurrentMoney.text = "Money: " + itemInBus.money.ToString();
     }
     public void carUpgrade()
     {
@@ -43,7 +46,6 @@ public class Buyscreen : MonoBehaviour
         FlashLight.SetActive(false);
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);
-        infoHolder.text = "Your bus will have more storage current sorage:" + itemInBus.inventory;
         if (itemInBus.money >= carPrice)
         {
             itemInBus.BusUp();
@@ -51,7 +53,8 @@ public class Buyscreen : MonoBehaviour
             itemInBus.money -= carPrice;
             carPrice *= 2;
             AudioSource.PlayClipAtPoint(buySound, car.transform.position);
-            infoHolder.text = "Your bus will have more storage current sorage:" + itemInBus.inventory;
+            infoHolder.text = "Your bus will have more storage current storage:" + itemInBus.inventory;
+              
         }
         else
         {
@@ -60,7 +63,7 @@ public class Buyscreen : MonoBehaviour
     }
     public void Carinfo()
     {
-        infoHolder.text = "Your bus will have more storage current sorage:" + itemInBus.inventory;
+        infoHolder.text = "Your bus will have more storage current storage:" + itemInBus.inventory;
         car.SetActive(true);
         FlashLight.SetActive(false);
         roberticaSkin.SetActive(false);
@@ -68,7 +71,6 @@ public class Buyscreen : MonoBehaviour
     }
     public void Zaklamp()
     {
-        infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought ? "Yes" : "No");
         car.SetActive(false);
         FlashLight.SetActive(true);
         roberticaSkin.SetActive(false);
@@ -76,7 +78,7 @@ public class Buyscreen : MonoBehaviour
         if (!zaklamp.HasBought && itemInBus.money >= FlashPrice)
         {
             zaklamp.HasBought = true;
-            itemInBus.money -= carPrice;
+            itemInBus.money -= FlashPrice;
             infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought ? "Yes" : "No");
             AudioSource.PlayClipAtPoint(buySound, car.transform.position);
 
@@ -99,15 +101,16 @@ public class Buyscreen : MonoBehaviour
                 itemInBus.money -= RoberticaPrice;
                 robertSkin.SetActive(false);
                 roberticaSkin.SetActive(true);
-                RoberticaBought = true;
-                roberticaON = true;
+                RoberticaBought = true; 
                 RobertBuy.text = "Equipped";
                 RobertBuy.fontSize = 30;
-                infoHolder.text = "Robert is a dragqeeun in his free time buy him a dress:" + (RoberticaBought ? "Equipped" : "Unequipped");
+                AudioSource.PlayClipAtPoint(buySound, car.transform.position);
+            infoHolder.text = "Robert is a dragqueen in his free time buy him a dress    " + (RoberticaBought ? "Equipped" : "Unequipped");
             }
             if (RoberticaBought)
             {
-                infoHolder.text = "Robert is a dragqeeun in his free time buy him a dress: " + (roberticaON ? "Unequipped" : "Equipped");
+                AudioSource.PlayClipAtPoint(equip, car.transform.position);
+                infoHolder.text = "Robert is a dragqueen in his free time buy him a dress     " + (roberticaON ? "Unequipped" : "Equipped");
                 if (roberticaON)
                 {
                     robertSkin.SetActive(true);
@@ -129,6 +132,10 @@ public class Buyscreen : MonoBehaviour
         }
     public void roberticaInfo()
     {
-        infoHolder.text = "Robert is a dragqeeun in his free time buy him a dress: " + (roberticaON ? "Equipped" : "Unequipped");
+        car.SetActive(false);
+        FlashLight.SetActive(false);
+        roberticaSkin.SetActive(true);
+        robertSkin.SetActive(false);
+        infoHolder.text = "Robert is a dragqueen in his free time buy him a dress     " + (roberticaON ? "Equipped" : "Unequipped");
     }
 }

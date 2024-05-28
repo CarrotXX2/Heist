@@ -20,6 +20,7 @@ public class Kluis : MonoBehaviour
     public GameObject button9;
     public GameObject clearButton;
     public GameObject enterButton;
+    public AudioClip CLick;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,49 +35,62 @@ public class Kluis : MonoBehaviour
     public void B1()
     {
         charholder.text = charholder.text + 1;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void B2()
     {
         charholder.text = charholder.text + 2;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
+
     }
     public void B3()
     {
         charholder.text = charholder.text + 3;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void B4()
     {
         charholder.text = charholder.text + 4;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void B5()
     {
         charholder.text = charholder.text + 5;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void B6()
     {
         charholder.text = charholder.text + 6;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void B7()
     {
         charholder.text = charholder.text + 7;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void B8()
     {
         charholder.text = charholder.text + 8;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void B9()
     {
         charholder.text = charholder.text + 9;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void B0()
     {
         charholder.text = charholder.text + 0;
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
     }
     public void Clearbutton()
     {
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
         charholder.text = null;   
     }
     public void Enterbutton()
     {
+        AudioSource.PlayClipAtPoint(CLick, transform.position);
         if (charholder.text == "9120")
         {
             Debug.Log("succes");
