@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Finn.unity
     guid: 84d16a16455a6b14f8197a7619860991
+  - enabled: 1
+    path: Assets/Scenes/BuyMenu 1.unity
+    guid: 13d8a13ab52e61e41bf18f6a641b3898
+  - enabled: 1
+    path: Assets/Scenes/Silver/Silver.unity
+    guid: b1cd64a224726bf4aa1ac9aa3db00b4d
   m_configObjects: {}
