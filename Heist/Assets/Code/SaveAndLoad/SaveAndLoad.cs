@@ -30,13 +30,13 @@ public class SaveAndLoad : MonoBehaviour
 
         string json = JsonUtility.ToJson(model);
 
-        string bestandsPad = Application.persistentDataPath + "/Savedata.json";
+        string bestandsPad = Application.persistentDataPath + "/Heist.json";
         print(bestandsPad);
         File.WriteAllText(bestandsPad, json);
     }
     public void LoadData()
     {
-        string filePath = Application.persistentDataPath + "/SaveData.json";
+        string filePath = Application.persistentDataPath + "/Heist.json";
 
         if (File.Exists(filePath))
         {
@@ -53,9 +53,7 @@ public class SaveAndLoad : MonoBehaviour
     public class SaveDataModel
     {
         public Vector3 positie;
-        public Quaternion rotatie;
-        public int score;
-        
+        public Quaternion rotatie;      
 
 
     }
