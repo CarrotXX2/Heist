@@ -9,7 +9,7 @@ public class AiBehavior : MonoBehaviour
     public Transform player; // Reference to the player
     public float chaseDistance = 10f; // Distance at which the neighbor will start chasing the player
     public float wanderRadius = 5f; // Radius for random wandering
-    public float sitChance = 0.5f; // Chance to sit down when entering a couch area
+    public float sitChance = 1f; // Chance to sit down when entering a couch area
     public float walkToCouchChance = 0.1f; // Chance to walk to the couch during wandering
 
     private NavMeshAgent agent;
@@ -82,6 +82,7 @@ public class AiBehavior : MonoBehaviour
                 // Choose a random couch to walk to
                 Transform couch = couches[Random.Range(0, couches.Count)];
                 agent.SetDestination(couch.position);
+                SitDown();
                 // Stop walking for a random period before sitting down
             }
             else
@@ -149,7 +150,7 @@ public class AiBehavior : MonoBehaviour
         {
             yield break; // If sitting was interrupted by chasing, exit
         }
-
+            
         isSitting = false;
         agent.isStopped = false; // Resume movement
     }

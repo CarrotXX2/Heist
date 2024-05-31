@@ -21,16 +21,18 @@ public class Kluis : MonoBehaviour
     public GameObject clearButton;
     public GameObject enterButton;
     public AudioClip CLick;
+    public int safeCode;
     // Start is called before the first frame update
     void Start()
     {
         canvas.enabled = false;
+        safeCode = Random.Range(1000, 10000); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        print(safeCode); 
     }
     public void B1()
     {
@@ -91,7 +93,7 @@ public class Kluis : MonoBehaviour
     public void Enterbutton()
     {
         AudioSource.PlayClipAtPoint(CLick, transform.position);
-        if (charholder.text == "9120")
+        if (charholder.text == safeCode.ToString())
         {
             Debug.Log("succes");
             canvas.enabled = false;

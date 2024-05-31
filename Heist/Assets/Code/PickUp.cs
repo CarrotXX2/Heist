@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
@@ -14,9 +15,23 @@ public class PickUp : MonoBehaviour
     public bool dropped;
     public float throwForce;
     public BoxCollider col;
+    public Camera playCam;
+    public Camera buyCam;
+    private Camera activeCamera;
+    public Canvas shopscreen;
+    private bool hasBeenPickedUp = false;   
+    public bool shopOpen;
+    public GameObject player;
 
-    private bool hasBeenPickedUp = false;
-
+    private void Start()
+    {
+        shopOpen = false;   
+        shopscreen.enabled = false;
+        activeCamera = playCam;
+        playCam.enabled = true;
+        buyCam.enabled = false;
+        player.SetActive(true);
+    }
     void Update()
     {
         if (!hasBeenPickedUp && Input.GetKey(KeyCode.E))
@@ -66,6 +81,36 @@ public class PickUp : MonoBehaviour
                 rigidobj.AddForce(transform.forward * throwForce, ForceMode.Impulse); // Apply throw force
                 hasBeenPickedUp = false;
             }
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
+            {
+                if (hit.transform.gameObject.CompareTag("Shop") && !shopOpen)
+                {
+                    SwitchCamera();
+                    shopscreen.enabled = true;
+                    shopOpen = true;
+                    Cursor.lockState = CursorLockMode.Confined;
+                    player.SetActive(false);
+                }
+            }
+        }
+    }
+    public void SwitchCamera()
+    {
+        // Switch active camera
+        if (activeCamera == playCam)
+        {
+            playCam.enabled = false;
+            buyCam.enabled = true;
+            activeCamera = buyCam;
+        }
+        else
+        {
+            playCam.enabled = true;
+            buyCam.enabled = false;
+            activeCamera = playCam;
         }
     }
 }

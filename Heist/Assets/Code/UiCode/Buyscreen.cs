@@ -24,6 +24,7 @@ public class Buyscreen : MonoBehaviour
     public GameObject roberticaSkin;
     public bool RoberticaBought;
     public bool roberticaON;
+    public PickUp pickUpSc;
     // Start is called before the first frame update
     void Start()
     {
@@ -138,4 +139,14 @@ public class Buyscreen : MonoBehaviour
         robertSkin.SetActive(false);
         infoHolder.text = "Robert is a dragqueen in his free time buy him a dress     " + (roberticaON ? "Equipped" : "Unequipped");
     }
+    public void ExitShop()
+    {
+        pickUpSc.SwitchCamera();
+        Cursor.lockState = CursorLockMode.Locked;
+        pickUpSc.player.SetActive(true);
+        pickUpSc.shopscreen.enabled = false;
+        pickUpSc.shopOpen = false;
+    }
+
+
 }
