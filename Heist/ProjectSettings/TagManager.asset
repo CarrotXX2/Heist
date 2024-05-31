@@ -7,6 +7,7 @@ TagManager:
   - Pickable
   - Kluis
   - Couch
+  - Shop
   layers:
   - Default
   - TransparentFX
