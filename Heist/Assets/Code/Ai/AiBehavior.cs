@@ -1,27 +1,38 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.Animations;
 
 public class AiBehavior : MonoBehaviour
 {
     public Transform player; // Reference to the player
-    public float chaseDistance = 10f; // Distance at which the neighbor will start chasing the player
+    public float chaseDistance = 11f; // Distance at which the neighbor will start chasing the player
     public float wanderRadius = 5f; // Radius for random wandering
     public float sitChance = 1f; // Chance to sit down when entering a couch area
     public float walkToCouchChance = 0.1f; // Chance to walk to the couch during wandering
+    public float attackRange = 2;
+    public Transform playerCamera;
 
     private NavMeshAgent agent;
     private Vector3 wanderTarget;
     private bool isSitting = false;
     private bool isNearCouch = false;
     private List<Transform> couches = new List<Transform>(); // List of couches
+    public GameObject robertHead;
+    public AudioClip jumpScare;
+    public AudioClip hey;
+    public AudioClip DontMess;
+    public bool chasing;
+    public bool jumped = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         wanderTarget = transform.position;
+        chasing = false;    
 
         // Find all couches in the scene
         foreach (GameObject couch in GameObject.FindGameObjectsWithTag("Couch"))
@@ -63,27 +74,43 @@ public class AiBehavior : MonoBehaviour
             {
                 StartCoroutine(SitDown());
             }
+            if (distanceToPlayer <= attackRange)
+            {
+               playerCamera.LookAt(robertHead.transform.position);
+                agent.speed = 0f;
+                if (jumped == false)
+                {
+                    jumped = true;
+                    AudioSource.PlayClipAtPoint(DontMess, robertHead.transform.position);
+                    AudioSource.PlayClipAtPoint(jumpScare, robertHead.transform.position);
+                }
+            }
         }
 
         UpdateRotation();
+      
     }
 
     void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        if (!chasing)
+        {
+            AudioSource.PlayClipAtPoint(hey, robertHead.transform.position);
+            chasing = true;
+        }
     }
 
     void Wander()
     {
+        chasing = false;
         if (!agent.hasPath || agent.remainingDistance < 0.5f)
         {
             if (Random.value < walkToCouchChance && couches.Count > 0)
             {
                 // Choose a random couch to walk to
                 Transform couch = couches[Random.Range(0, couches.Count)];
-                agent.SetDestination(couch.position);
-                SitDown();
-                // Stop walking for a random period before sitting down
+                StartCoroutine(WalkToCouchAndSit(couch));
             }
             else
             {
@@ -93,12 +120,18 @@ public class AiBehavior : MonoBehaviour
         }
     }
 
-    IEnumerator StopWalkingForRandomPeriod()
+    IEnumerator WalkToCouchAndSit(Transform couch)
     {
-        // Stop walking for a random period
-        agent.isStopped = true;
-        yield return new WaitForSeconds(Random.Range(10, 20));
-        agent.isStopped = false;
+        agent.SetDestination(couch.position);
+
+        while (agent.pathPending || agent.remainingDistance > 0.5f)
+        {
+            yield return null;
+            walkToCouchChance = 1f;
+        }
+
+        // Call the SitDown coroutine when reaching the couch
+        StartCoroutine(SitDown());
     }
 
     Vector3 GetRandomPoint(Vector3 center, float radius)
@@ -140,18 +173,12 @@ public class AiBehavior : MonoBehaviour
     {
         isSitting = true;
         agent.isStopped = true; // Stop moving
-        StartCoroutine(StopWalkingForRandomPeriod());
+        float sitTime = Random.Range(7, 15); // Sit down for a random period between 7 and 15 seconds
+        yield return new WaitForSeconds(sitTime);
 
-        // Sit down animation or behavior can be added here
-
-        yield return new WaitForSeconds(Random.Range(7, 15)); // Sit down for a random period
-
-        if (!isSitting)
-        {
-            yield break; // If sitting was interrupted by chasing, exit
-        }
-            
         isSitting = false;
         agent.isStopped = false; // Resume movement
+        walkToCouchChance = 0.1f;
     }
 }
+
