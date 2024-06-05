@@ -16,6 +16,8 @@ public class PickUp : MonoBehaviour
     public float throwForce;
     public BoxCollider col;
     private bool hasBeenPickedUp = false;
+    public float rayDistance = 5f;  // The distance the ray will travel
+    public LayerMask doorLayer;     // The layer on which the door resides
 
     private void Start()
     {
@@ -69,6 +71,22 @@ public class PickUp : MonoBehaviour
                 rigidobj.velocity = Vector3.zero; // Reset the velocity
                 rigidobj.AddForce(transform.forward * throwForce, ForceMode.Impulse); // Apply throw force
                 hasBeenPickedUp = false;
+            }
+        }
+        {
+            if (Input.GetMouseButtonDown(0))  // Check for left mouse button click
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, rayDistance, doorLayer))
+                {
+                    DoorOpener doorController = hit.collider.GetComponent<DoorOpener>();
+                    if (doorController != null)
+                    {
+                        doorController.ToggleDoor();
+                    }
+                }
             }
         }
     }
