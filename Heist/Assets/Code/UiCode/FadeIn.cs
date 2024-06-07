@@ -9,7 +9,7 @@ public class FadeInImage : MonoBehaviour
     public float fadeDuration = 3.0f; // De duur van de fade-in in seconden
     public float waitAfterFade = 3.0f; // De tijd om te wachten na de fade-in
 
-    void Death()
+    public void Death()
     {
         // Start de coroutine om de afbeelding in te laten faden en vervolgens de scène te laden
         StartCoroutine(FadeInAndLoadScene());

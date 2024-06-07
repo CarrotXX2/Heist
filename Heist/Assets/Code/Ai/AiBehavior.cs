@@ -27,6 +27,8 @@ public class AiBehavior : MonoBehaviour
     public AudioClip DontMess;
     public bool chasing;
     public bool jumped = false;
+    public FadeInImage deathScreen;
+
 
     void Start()
     {
@@ -83,6 +85,7 @@ public class AiBehavior : MonoBehaviour
                     jumped = true;
                     AudioSource.PlayClipAtPoint(DontMess, robertHead.transform.position);
                     AudioSource.PlayClipAtPoint(jumpScare, robertHead.transform.position);
+                    deathScreen.Death();
                 }
             }
         }

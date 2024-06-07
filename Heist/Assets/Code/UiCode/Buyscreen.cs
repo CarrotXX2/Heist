@@ -25,7 +25,8 @@ public class Buyscreen : MonoBehaviour
     public bool RoberticaBought;
     public bool roberticaON;
     public OpenShop pickUpSc;
-    // Start is called before the first frame update
+    public string moneyNumber;
+
     void Start()
     {
         FlashLight.SetActive(false);
@@ -33,14 +34,17 @@ public class Buyscreen : MonoBehaviour
         RoberticaBought = false;
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);
+        moneyNumber = itemInBus.money.ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        print(itemInBus.money);
         carPriceText.text = "price: " + carPrice.ToString();
+        moneyNumber = itemInBus.money.ToString();
         CurrentMoney.text = "Money: " + itemInBus.money.ToString();
     }
+
     public void carUpgrade()
     {
         car.SetActive(true);
@@ -55,13 +59,14 @@ public class Buyscreen : MonoBehaviour
             carPrice *= 2;
             AudioSource.PlayClipAtPoint(buySound, car.transform.position);
             infoHolder.text = "Your bus will have more storage current storage:" + itemInBus.inventory;
-              
+            itemInBus.SaveMoney();
         }
         else
         {
-            Debug.Log("NoMoney"); 
+            Debug.Log("NoMoney");
         }
     }
+
     public void Carinfo()
     {
         infoHolder.text = "Your bus will have more storage current storage:" + itemInBus.inventory;
@@ -70,6 +75,7 @@ public class Buyscreen : MonoBehaviour
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);
     }
+
     public void Zaklamp()
     {
         car.SetActive(false);
@@ -82,9 +88,10 @@ public class Buyscreen : MonoBehaviour
             itemInBus.money -= FlashPrice;
             infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought ? "Yes" : "No");
             AudioSource.PlayClipAtPoint(buySound, car.transform.position);
-
+            itemInBus.SaveMoney();
         }
     }
+
     public void InfoZaklamp()
     {
         FlashLight.SetActive(true);
@@ -93,44 +100,44 @@ public class Buyscreen : MonoBehaviour
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);
     }
-        public void robertica()
+
+    public void robertica()
+    {
+        FlashLight.SetActive(false);
+        car.SetActive(false);
+        if (!RoberticaBought && itemInBus.money >= RoberticaPrice)
         {
-            FlashLight.SetActive(false);
-            car.SetActive(false);
-            if (!RoberticaBought && itemInBus.money >= RoberticaPrice)
+            itemInBus.money -= RoberticaPrice;
+            robertSkin.SetActive(false);
+            roberticaSkin.SetActive(true);
+            RoberticaBought = true;
+            RobertBuy.text = "Equipped";
+            RobertBuy.fontSize = 30;
+            AudioSource.PlayClipAtPoint(buySound, car.transform.position);
+            infoHolder.text = "Robert is a dragqueen in his free time buy him a dress    " + (RoberticaBought ? "Equipped" : "Unequipped");
+            itemInBus.SaveMoney();
+        }
+        if (RoberticaBought)
+        {
+            AudioSource.PlayClipAtPoint(equip, car.transform.position);
+            infoHolder.text = "Robert is a dragqueen in his free time buy him a dress     " + (roberticaON ? "Unequipped" : "Equipped");
+            if (roberticaON)
             {
-                itemInBus.money -= RoberticaPrice;
+                robertSkin.SetActive(true);
+                roberticaSkin.SetActive(false);
+                roberticaON = false;
+                RobertBuy.text = "Equip";
+            }
+            else
+            {
                 robertSkin.SetActive(false);
                 roberticaSkin.SetActive(true);
-                RoberticaBought = true; 
-                RobertBuy.text = "Equipped";
-                RobertBuy.fontSize = 30;
-                AudioSource.PlayClipAtPoint(buySound, car.transform.position);
-            infoHolder.text = "Robert is a dragqueen in his free time buy him a dress    " + (RoberticaBought ? "Equipped" : "Unequipped");
+                roberticaON = true;
+                RobertBuy.text = "Unquip";
             }
-            if (RoberticaBought)
-            {
-                AudioSource.PlayClipAtPoint(equip, car.transform.position);
-                infoHolder.text = "Robert is a dragqueen in his free time buy him a dress     " + (roberticaON ? "Unequipped" : "Equipped");
-                if (roberticaON)
-                {
-                    robertSkin.SetActive(true);
-                    roberticaSkin.SetActive(false);
-                    roberticaON = false;
-                    RobertBuy.text = "Equip";
-
-
-                }
-                else
-                {
-                    robertSkin.SetActive(false);
-                    roberticaSkin.SetActive(true);
-                    roberticaON = true;
-                    RobertBuy.text = "Unquip";
-                }
-            }
-
         }
+    }
+
     public void roberticaInfo()
     {
         car.SetActive(false);
@@ -139,6 +146,7 @@ public class Buyscreen : MonoBehaviour
         robertSkin.SetActive(false);
         infoHolder.text = "Robert is a dragqueen in his free time buy him a dress     " + (roberticaON ? "Equipped" : "Unequipped");
     }
+
     public void ExitShop()
     {
         pickUpSc.SwitchCamera();
@@ -147,6 +155,4 @@ public class Buyscreen : MonoBehaviour
         pickUpSc.shopscreen.enabled = false;
         pickUpSc.shopOpen = false;
     }
-
-
 }
