@@ -88,7 +88,7 @@ public class SettingsMenu : MonoBehaviour
     }
     public void playclicked()
     {
-        SceneManager.LoadScene("Finn");
+        SceneManager.LoadScene("Silver");
 
     }
 }
