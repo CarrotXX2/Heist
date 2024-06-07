@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickUp : MonoBehaviour
 {
@@ -87,6 +88,13 @@ public class PickUp : MonoBehaviour
                         doorController.ToggleDoor();
                     }
                 }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
+            { if (hit.transform.gameObject.CompareTag("Bus"))              
+                    SceneManager.LoadScene("BuyMenu 1");           
             }
         }
     }

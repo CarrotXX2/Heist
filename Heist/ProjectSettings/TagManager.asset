@@ -8,6 +8,7 @@ TagManager:
   - Kluis
   - Couch
   - Shop
+  - Bus
   layers:
   - Default
   - TransparentFX
