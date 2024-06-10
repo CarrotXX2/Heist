@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 54043600}
   m_Direction: 0
   m_Value: 0.5
-  m_Size: 0.32584617
+  m_Size: 0.32753846
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5674,7 +5674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 98d05c1ebb4394946bbf1177607c1db1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cde374414e4b25848988751d8beeb011, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

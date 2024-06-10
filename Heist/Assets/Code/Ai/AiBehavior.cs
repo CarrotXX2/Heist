@@ -28,7 +28,7 @@ public class AiBehavior : MonoBehaviour
     public bool chasing;
     public bool jumped = false;
     public FadeInImage deathScreen;
-
+    public ItemInBus money;
 
     void Start()
     {
@@ -86,6 +86,10 @@ public class AiBehavior : MonoBehaviour
                     AudioSource.PlayClipAtPoint(DontMess, robertHead.transform.position);
                     AudioSource.PlayClipAtPoint(jumpScare, robertHead.transform.position);
                     deathScreen.Death();
+                    if (money.money >= 500f)
+                    {
+                        money.money -= 500f;
+                    }
                 }
             }
         }

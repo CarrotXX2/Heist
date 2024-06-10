@@ -22,6 +22,7 @@ public class ItemInBus : MonoBehaviour
         }
         print(inventory);
         print("Current Money: " + money);
+        SaveMoney();
     }
 
     public void OnTriggerEnter(Collider other)
