@@ -9,6 +9,7 @@ TagManager:
   - Couch
   - Shop
   - Bus
+  - Wall
   layers:
   - Default
   - TransparentFX
