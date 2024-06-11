@@ -19,6 +19,7 @@ public class Buyscreen : MonoBehaviour
     public GameObject FlashLight;
     public AudioClip buySound;
     public AudioClip equip;
+    public AudioClip deneidSound;
     public bool Owned;
     public GameObject robertSkin;
     public GameObject roberticaSkin;
@@ -64,6 +65,7 @@ public class Buyscreen : MonoBehaviour
         else
         {
             Debug.Log("NoMoney");
+            AudioSource.PlayClipAtPoint(deneidSound, car.transform.position);
         }
     }
 
@@ -89,6 +91,10 @@ public class Buyscreen : MonoBehaviour
             infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought ? "Yes" : "No");
             AudioSource.PlayClipAtPoint(buySound, car.transform.position);
             itemInBus.SaveMoney();
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(deneidSound, car.transform.position);
         }
     }
 
@@ -136,6 +142,10 @@ public class Buyscreen : MonoBehaviour
                 RobertBuy.text = "Unquip";
             }
         }
+        else
+        {
+            AudioSource.PlayClipAtPoint(deneidSound, car.transform.position);
+        }
     }
 
     public void roberticaInfo()
@@ -154,5 +164,12 @@ public class Buyscreen : MonoBehaviour
         pickUpSc.player.SetActive(true);
         pickUpSc.shopscreen.enabled = false;
         pickUpSc.shopOpen = false;
+        FlashLight.SetActive(false);
+        car.SetActive(false);
+        RoberticaBought = false;
+        roberticaSkin.SetActive(false);
+        robertSkin.SetActive(false);
+
     }
 }
+
