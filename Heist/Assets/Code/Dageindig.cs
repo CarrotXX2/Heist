@@ -7,7 +7,7 @@ using TMPro;
 public class Dageindig : MonoBehaviour
 {
     public TMP_Text text; // Sleep hier je Text component naartoe in de Inspector
-    private float timeRemaining = 7 * 60; // 7 minuten in seconden
+    public float timeRemaining = 7 * 60; // 7 minuten in seconden
     private bool timerIsRunning = false;
 
     void Start()
