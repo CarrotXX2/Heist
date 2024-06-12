@@ -28,6 +28,22 @@ public class DoorOpener : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ai"))
+        {
+            OpenDoor();
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("ai"))
+        {
+            CloseDoor();
+        }
+    }
+
     public void OpenDoor()
     {
         isOpen = true;

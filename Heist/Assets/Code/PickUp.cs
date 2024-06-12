@@ -93,8 +93,18 @@ public class PickUp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
-            { if (hit.transform.gameObject.CompareTag("Bus"))              
-                    SceneManager.LoadScene("BuyMenu 1");           
+            {
+                if (hit.transform.gameObject.CompareTag("Bus"))
+                {
+                    SceneManager.LoadScene("BuyMenu 1");
+                }
+                else
+                {
+                    if (hit.transform.gameObject.CompareTag("Bus1"))
+                    {
+                        SceneManager.LoadScene("Silver");
+                    }
+                }
             }
         }
     }

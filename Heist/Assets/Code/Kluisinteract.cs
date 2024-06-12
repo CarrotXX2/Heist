@@ -25,6 +25,7 @@ public class Kluisinteract : MonoBehaviour
                 {
                     Cursor.lockState = CursorLockMode.Confined;
                     canvas.enabled = true;
+                    Time.timeScale = 0f;
                     
                 }
             }

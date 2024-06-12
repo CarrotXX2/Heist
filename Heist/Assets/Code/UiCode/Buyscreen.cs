@@ -44,6 +44,10 @@ public class Buyscreen : MonoBehaviour
         carPriceText.text = "price: " + carPrice.ToString();
         moneyNumber = itemInBus.money.ToString();
         CurrentMoney.text = "Money: " + itemInBus.money.ToString();
+        if (Input.GetKey(KeyCode.L))
+        {
+            itemInBus.money += 10000;
+        }    
     }
 
     public void carUpgrade()

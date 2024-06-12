@@ -98,6 +98,7 @@ public class Kluis : MonoBehaviour
             Debug.Log("succes");
             canvas.enabled = false;
             Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
         }
         else
         {
