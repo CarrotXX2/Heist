@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - ai
   - Bus1
+  - Garage
   layers:
   - Default
   - TransparentFX
