@@ -1,28 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class AIController : MonoBehaviour
+public class RobertAnimatie : MonoBehaviour
 {
+    public Transform player;
+    private NavMeshAgent agent;
     private Animator animator;
-    private bool isWalking;
+    public float attackRange = 2f;
 
-    void Start()
+    private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
-        // Check if AI is walking (this is just an example, use your own logic)
-        isWalking = CheckIfWalking();
 
-        // Update animator parameter
-        animator.SetBool("isWalking", isWalking);
+        agent.destination = player.position;
+
+
+        if (Vector3.Distance(transform.position, player.position) <= attackRange)
+        {
+
+            Attack();
+        }
     }
 
-    bool CheckIfWalking()
+    void Attack()
     {
-        // Implement your logic to check if AI is walking
-        // For example, check if the AI's velocity is above a certain threshold
-        return GetComponent<Rigidbody>().velocity.magnitude > 0.1f;
+
+        animator.SetTrigger("Attack");
     }
 }
