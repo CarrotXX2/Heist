@@ -33,18 +33,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: rig|attack
-      takeName: rig|attack
+      name: rig|WALK (1)
+      takeName: rig|WALK
       internalID: 8964532722025290734
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 47
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
