@@ -24,6 +24,7 @@ public class InGameSettings : MonoBehaviour
     {
         pause.enabled = false;
         settings.enabled = true;
+        Time.timeScale = 1.0f;
     }
     public void resume()
     {

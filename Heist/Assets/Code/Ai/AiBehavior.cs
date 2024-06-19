@@ -15,7 +15,8 @@ public class AiBehavior : MonoBehaviour
     public float walkToCouchChance = 0.1f; // Chance to walk to the couch during wandering
     public float attackRange = 2;
     public Transform playerCamera;
-    public GameObject speler;
+    public MoveMent movement;
+
 
     private NavMeshAgent agent;
     private Vector3 wanderTarget;
@@ -87,6 +88,8 @@ public class AiBehavior : MonoBehaviour
                     AudioSource.PlayClipAtPoint(DontMess, robertHead.transform.position);
                     AudioSource.PlayClipAtPoint(jumpScare, robertHead.transform.position);
                     deathScreen.Death();
+                    movement.death();
+                   
                     if (money.money >= 500f)
                     {
                         money.money -= 500f;

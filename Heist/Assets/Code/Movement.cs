@@ -18,6 +18,8 @@ public class MoveMent : MonoBehaviour
     {
             Cursor.lockState = CursorLockMode.Locked;
             rb = GetComponent<Rigidbody>();
+        walkspeed = 3;
+        sprintspeed = 5;
     }
 
     // Update is called once per frame
@@ -47,5 +49,10 @@ public class MoveMent : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
             }
         }
+    }
+    public void death()
+    {
+        walkspeed = 0;
+        sprintspeed = 0;
     }
 }
