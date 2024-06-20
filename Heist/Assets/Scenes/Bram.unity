@@ -1043,6 +1043,79 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1001 &884099757
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.483
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.070753336
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.79
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05577cb77b0e06240b59bf4dde27992a, type: 2}
+    - target: {fileID: 919132149155446097, guid: 08565ef7105e95f41abfeb8d1ecbc1eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Clothing Cabinet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08565ef7105e95f41abfeb8d1ecbc1eb, type: 3}
 --- !u!1 &1009484357
 GameObject:
   m_ObjectHideFlags: 0
@@ -12367,3 +12440,4 @@ SceneRoots:
   - {fileID: 1084374844}
   - {fileID: 417275470}
   - {fileID: 670852212}
+  - {fileID: 884099757}
