@@ -270,6 +270,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &73446063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6340493040260428802, guid: a2cf413a87bd6f14abb26bd1151b10df,
+    type: 3}
+  m_PrefabInstance: {fileID: 498471307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &73446066
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73446063}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e6a126a0deb7ae4797dfcb56629748e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &89938245
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +777,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 206506725}
   HasBought: 0
+--- !u!1 &225647556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4961229619774634267, guid: a2cf413a87bd6f14abb26bd1151b10df,
+    type: 3}
+  m_PrefabInstance: {fileID: 498471307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &389957847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,6 +1037,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1368329407}
+    - targetCorrespondingSourceObject: {fileID: -6340493040260428802, guid: a2cf413a87bd6f14abb26bd1151b10df,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 73446066}
   m_SourcePrefab: {fileID: 100100000, guid: a2cf413a87bd6f14abb26bd1151b10df, type: 3}
 --- !u!1001 &502312416
 PrefabInstance:
@@ -2871,7 +2908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rplayer: {fileID: 1481012809}
-  rattackRange: 2
+  rattackRange: 3
 --- !u!95 &1368329408
 Animator:
   serializedVersion: 5
@@ -2905,22 +2942,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e22f2cf4fbecf46b8a487d306473b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  chaseDistance: 11
+  player: {fileID: 1481012809}
+  chaseDistance: 10
   wanderRadius: 5
-  sitChance: 1
+  sitChance: 100
   walkToCouchChance: 0.1
   attackRange: 2
-  playerCamera: {fileID: 0}
-  speler: {fileID: 0}
-  robertHead: {fileID: 0}
-  jumpScare: {fileID: 0}
-  hey: {fileID: 0}
-  DontMess: {fileID: 0}
+  playerCamera: {fileID: 2039167551}
+  movement: {fileID: 0}
+  robertHead: {fileID: 225647556}
+  jumpScare: {fileID: 8300000, guid: 353ed1721efa2ae40b10530c5a033148, type: 3}
+  hey: {fileID: 8300000, guid: b9e345c36ee96c347acb2650b56cd350, type: 3}
+  DontMess: {fileID: 8300000, guid: dd3f2d6da21712044b0fa582b12fd025, type: 3}
   chasing: 0
   jumped: 0
-  deathScreen: {fileID: 0}
-  money: {fileID: 0}
+  deathScreen: {fileID: 692692055}
+  money: {fileID: 1136518319837177400}
 --- !u!136 &1368329410
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2941,9 +2978,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2.616885
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.808, z: 0}
 --- !u!195 &1368329411
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5265,7 +5302,6 @@ SceneRoots:
   - {fileID: 1227406394}
   - {fileID: 1629657775940892976}
   - {fileID: 93670860}
-  - {fileID: 594695773799769350}
   - {fileID: 1260681755}
   - {fileID: 7759453295328450134}
   - {fileID: 1396918150}
@@ -5281,4 +5317,5 @@ SceneRoots:
   - {fileID: 1597835743}
   - {fileID: 691831177}
   - {fileID: 791275128}
+  - {fileID: 594695773799769350}
   - {fileID: 498471307}
