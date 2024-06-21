@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.Mathematics;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class Buyscreen : MonoBehaviour
 {
@@ -27,6 +29,9 @@ public class Buyscreen : MonoBehaviour
     public bool roberticaON;
     public OpenShop pickUpSc;
     public string moneyNumber;
+    public RobertticaSpawn equippedBool;
+
+
 
     void Start()
     {
@@ -36,6 +41,7 @@ public class Buyscreen : MonoBehaviour
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);
         moneyNumber = itemInBus.money.ToString();
+        equippedBool = FindObjectOfType<RobertticaSpawn>();
     }
 
     void Update()
@@ -47,7 +53,8 @@ public class Buyscreen : MonoBehaviour
         if (Input.GetKey(KeyCode.L))
         {
             itemInBus.money += 10000;
-        }    
+        }
+
     }
 
     public void carUpgrade()
@@ -126,6 +133,8 @@ public class Buyscreen : MonoBehaviour
             AudioSource.PlayClipAtPoint(buySound, car.transform.position);
             infoHolder.text = "Robert is a dragqueen in his free time buy him a dress    " + (RoberticaBought ? "Equipped" : "Unequipped");
             itemInBus.SaveMoney();
+            equippedBool.equipNum = 1;
+            equippedBool.SaveEquipNum();
         }
         if (RoberticaBought)
         {
@@ -136,14 +145,20 @@ public class Buyscreen : MonoBehaviour
                 robertSkin.SetActive(true);
                 roberticaSkin.SetActive(false);
                 roberticaON = false;
+                equippedBool.equipNum = 0;
                 RobertBuy.text = "Equip";
+                equippedBool.SaveEquipNum();
+
             }
             else
             {
                 robertSkin.SetActive(false);
                 roberticaSkin.SetActive(true);
                 roberticaON = true;
-                RobertBuy.text = "Unquip";
+                equippedBool.equipNum = 1;
+                RobertBuy.text = "Unequip";
+                equippedBool.SaveEquipNum();
+
             }
         }
         else
@@ -176,4 +191,5 @@ public class Buyscreen : MonoBehaviour
 
     }
 }
+
 

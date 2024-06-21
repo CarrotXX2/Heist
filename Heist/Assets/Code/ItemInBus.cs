@@ -7,22 +7,27 @@ public class ItemInBus : MonoBehaviour
     public float money;
     public PickUp pickupSC;
     public int inventory;
+    public int currentInv;
     public bool full = false;
 
     void Start()
     {
         LoadMoney();
+        LoadInv();
+        currentInv = inventory;
     }
 
     void Update()
     {
-        if (inventory <= 0)
+        print(inventory);
+        if (currentInv <= 0)
         {
             full = true;
         }
         print(inventory);
         print("Current Money: " + money);
         SaveMoney();
+        SaveInv();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -36,7 +41,7 @@ public class ItemInBus : MonoBehaviour
                 SaveMoney();
                 Debug.Log("Money added: " + script.MoneyWorth);
                 Destroy(other.gameObject);
-                inventory -= 1;
+                currentInv -= 1;
             }
         }
     }
@@ -58,6 +63,18 @@ public class ItemInBus : MonoBehaviour
         if (PlayerPrefs.HasKey("PlayerMoney"))
         {
             money = PlayerPrefs.GetFloat("PlayerMoney");
+        }
+    }
+    public void SaveInv()
+    {
+        PlayerPrefs.SetInt("CurrentInv", inventory);
+        PlayerPrefs.Save();
+    }
+    public void LoadInv()
+    {
+        if (PlayerPrefs.HasKey("CurrentInv"))
+        {
+            inventory = PlayerPrefs.GetInt("CurrentInv");
         }
     }
 }

@@ -89,6 +89,7 @@ public class AiBehavior : MonoBehaviour
                     AudioSource.PlayClipAtPoint(jumpScare, robertHead.transform.position);
                     deathScreen.Death();
                     movement.death();
+
                    
                     if (money.money >= 500f)
                     {
