@@ -1731,7 +1731,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 54043600}
   m_Direction: 0
   m_Value: 0.5
-  m_Size: 0.33523077
+  m_Size: 0.35323077
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12495,6 +12495,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1024345595}
   - {fileID: 2100337827}
   - {fileID: 681166023}
   - {fileID: 1267140799}
@@ -12561,6 +12562,5 @@ SceneRoots:
   - {fileID: 925864250}
   - {fileID: 520701357}
   - {fileID: 1295852664}
-  - {fileID: 1024345595}
   - {fileID: 2147049026}
   - {fileID: 626781753}

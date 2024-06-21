@@ -18,8 +18,6 @@ public class MoveMent : MonoBehaviour
     {
             Cursor.lockState = CursorLockMode.Locked;
             rb = GetComponent<Rigidbody>();
-        walkspeed = 3;
-        sprintspeed = 5;
     }
 
     // Update is called once per frame
