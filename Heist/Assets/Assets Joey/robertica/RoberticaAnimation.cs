@@ -9,6 +9,7 @@ public class RoberticaAnimatie : MonoBehaviour
     private NavMeshAgent ragent;
     private Animator ranimator;
     public float rattackRange = 2f;
+    public float komdanRange = 30f;
 
     private void Start()
     {
@@ -20,7 +21,10 @@ public class RoberticaAnimatie : MonoBehaviour
     {
 
         ragent.destination = rplayer.position;
-
+        if (Vector3.Distance(transform.position, rplayer.position) <= komdanRange)
+        {
+            KomdanRange();
+        }
 
         if (Vector3.Distance(transform.position, rplayer.position) <= rattackRange)
         {
@@ -33,5 +37,10 @@ public class RoberticaAnimatie : MonoBehaviour
     {
 
         ranimator.SetTrigger("RAttack");
+    }
+
+    void KomdanRange()
+    {
+        ranimator.SetTrigger("komdanRange");
     }
 }
