@@ -19,6 +19,7 @@ public class PickUp : MonoBehaviour
     private bool hasBeenPickedUp = false;
     public float rayDistance = 5f;  // The distance the ray will travel
     public LayerMask doorLayer;     // The layer on which the door resides
+    public AudioClip pickUp;
 
     private void Start()
     {
@@ -43,6 +44,7 @@ public class PickUp : MonoBehaviour
                     OBJrigid.isKinematic = true;
                     hasBeenPickedUp = true; // Set the flag to true to indicate it has been picked up
                     dropped = false;
+                    AudioSource.PlayClipAtPoint(pickUp, hand.transform.position);
                 }
             }
         }

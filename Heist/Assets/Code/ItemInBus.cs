@@ -77,4 +77,5 @@ public class ItemInBus : MonoBehaviour
             inventory = PlayerPrefs.GetInt("CurrentInv");
         }
     }
+
 }
