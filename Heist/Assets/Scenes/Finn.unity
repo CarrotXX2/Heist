@@ -2909,6 +2909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rplayer: {fileID: 1481012809}
   rattackRange: 3
+  komdanRange: 7
 --- !u!95 &1368329408
 Animator:
   serializedVersion: 5
@@ -2949,7 +2950,7 @@ MonoBehaviour:
   walkToCouchChance: 0.1
   attackRange: 2
   playerCamera: {fileID: 2039167551}
-  movement: {fileID: 0}
+  movement: {fileID: 1481012812}
   robertHead: {fileID: 225647556}
   jumpScare: {fileID: 8300000, guid: 353ed1721efa2ae40b10530c5a033148, type: 3}
   hey: {fileID: 8300000, guid: b9e345c36ee96c347acb2650b56cd350, type: 3}
@@ -3536,6 +3537,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 502312416}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1481012812 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1268688656647395387, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 502312416}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481012800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d784b765a3955041ae769ab08681c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1482131414
 GameObject:
   m_ObjectHideFlags: 0
@@ -4795,6 +4808,11 @@ PrefabInstance:
       propertyPath: DontMess
       value: 
       objectReference: {fileID: 8300000, guid: 7bfc01d7e62de284a8dae2ac3ca5e9a3, type: 3}
+    - target: {fileID: 7800028278448220487, guid: abb90a18e548d284b8a95d418ebca62f,
+        type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 1481012812}
     - target: {fileID: 7800028278448220487, guid: abb90a18e548d284b8a95d418ebca62f,
         type: 3}
       propertyPath: jumpScare
