@@ -2065,6 +2065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1481012809}
   attackRange: 3
+  komdanr: 60
 --- !u!1 &1075724078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5280399584855277917, guid: f725e3fa076ff5d4382354bad4cd80c4,
