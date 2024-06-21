@@ -9,7 +9,7 @@ public class RoberticaAnimatie : MonoBehaviour
     private NavMeshAgent ragent;
     private Animator ranimator;
     public float rattackRange = 2f;
-    public float komdanRange = 30f;
+    public float komdanRange = 60f;
 
     private void Start()
     {

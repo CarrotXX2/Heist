@@ -9,6 +9,7 @@ public class RobertAnimatie : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     public float attackRange = 2f;
+    public float komdanr = 60f;
 
     private void Start()
     {
@@ -27,11 +28,22 @@ public class RobertAnimatie : MonoBehaviour
 
             Attack();
         }
+        if (Vector3.Distance(transform.position, player.position) <= komdanr)
+        {
+
+            komdanrobert();
+        }
+
     }
 
     void Attack()
     {
 
         animator.SetTrigger("Attack");
+    }
+
+    void komdanrobert()
+    {
+        animator.SetTrigger("komdanr");
     }
 }
