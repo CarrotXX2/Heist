@@ -8,6 +8,8 @@ public class SceneLoader : MonoBehaviour
     public void playclicked()
     {
         SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1.0f;
+
 
     }
 }

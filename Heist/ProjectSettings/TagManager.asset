@@ -13,6 +13,7 @@ TagManager:
   - ai
   - Bus1
   - Garage
+  - Fridge
   layers:
   - Default
   - TransparentFX

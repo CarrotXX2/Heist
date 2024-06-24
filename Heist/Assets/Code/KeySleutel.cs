@@ -7,7 +7,6 @@ public class KeyPickup : MonoBehaviour
     public Transform objectToRotate;  // Het object dat moet draaien
     public GameObject key;            // De sleutel in de scene
     public float rotationSpeed = 1f;  // Snelheid van de rotatie
-    public AudioClip pickupSound;     // Geluid dat wordt afgespeeld bij het oppakken van de sleutel
     public TextMeshProUGUI pickupText; // TextMeshPro tekst object dat verschijnt bij het oppakken van de sleutel
     public Transform teleportTarget;  // Het doel waar de sleutel naar geteleporteerd wordt
 
@@ -63,18 +62,10 @@ public class KeyPickup : MonoBehaviour
     void PickUpKey()
     {
         hasKey = true;
-        PlayPickupSound();
         ShowPickupText();
         TeleportKey(); // Teleporteer de sleutel in plaats van deze te vernietigen
     }
 
-    void PlayPickupSound()
-    {
-        if (pickupSound != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(pickupSound);
-        }
-    }
 
     void ShowPickupText()
     {
