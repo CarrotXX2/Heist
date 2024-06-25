@@ -21959,6 +21959,16 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7688677645549231130, guid: 0327a542462423a40a892d49d8a125ee,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -88.23537
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688677645549231130, guid: 0327a542462423a40a892d49d8a125ee,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -142.4303
+      objectReference: {fileID: 0}
     - target: {fileID: 8925459884248914886, guid: 0327a542462423a40a892d49d8a125ee,
         type: 3}
       propertyPath: m_Pivot.x
