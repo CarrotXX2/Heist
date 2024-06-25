@@ -8,8 +8,11 @@ public class RoberticaAnimatie : MonoBehaviour
     public Transform rplayer;
     private NavMeshAgent ragent;
     private Animator ranimator;
-    public float rattackRange = 2f;
-    public float komdanRange = 60f;
+    public float rattackRange = 4f;
+    public float komdanRange = 7f;
+
+    private bool isAttacking = false;
+    private bool isInKomdanRange = false;
 
     private void Start()
     {
@@ -19,28 +22,40 @@ public class RoberticaAnimatie : MonoBehaviour
 
     private void Update()
     {
-
         ragent.destination = rplayer.position;
-        if (Vector3.Distance(transform.position, rplayer.position) <= komdanRange)
+
+        float distance = Vector3.Distance(transform.position, rplayer.position);
+
+        if (distance <= rattackRange && !isAttacking)
+        {
+            RAttack();
+        }
+        else if (distance <= komdanRange && !isInKomdanRange)
         {
             KomdanRange();
-        }
-
-        if (Vector3.Distance(transform.position, rplayer.position) <= rattackRange)
-        {
-
-            RAttack();
         }
     }
 
     void RAttack()
     {
-
+        isAttacking = true;
+        isInKomdanRange = false;
+        ragent.isStopped = true;
         ranimator.SetTrigger("RAttack");
     }
 
     void KomdanRange()
     {
+        isInKomdanRange = true;
+        isAttacking = false;
         ranimator.SetTrigger("komdanRange");
     }
+
+    public void ResetAttackState()
+    {
+        isAttacking = false;
+        isInKomdanRange = false;
+        ragent.isStopped = false;
+    }
+
 }
