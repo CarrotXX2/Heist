@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 public class Buyscreen : MonoBehaviour
 {
     public TMP_Text RobertBuy;
+    public TMP_Text FlashBuy;
     public TMP_Text infoHolder;
     public TMP_Text carPriceText;
     public TMP_Text CurrentMoney;
@@ -30,11 +31,17 @@ public class Buyscreen : MonoBehaviour
     public OpenShop pickUpSc;
     public string moneyNumber;
     public RobertticaSpawn equippedBool;
+    public int hasRobertica;
 
 
 
     void Start()
     {
+        
+        LoadInv();
+        Boughtrobert();
+        carprice();
+        
         FlashLight.SetActive(false);
         car.SetActive(false);
         RoberticaBought = false;
@@ -54,7 +61,7 @@ public class Buyscreen : MonoBehaviour
         {
             itemInBus.money += 10000;
         }
-
+        SaveInv();
     }
 
     public void carUpgrade()
@@ -105,6 +112,9 @@ public class Buyscreen : MonoBehaviour
                     infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought == 1 ? "Yes" : "No");
                     AudioSource.PlayClipAtPoint(buySound, car.transform.position);
                     itemInBus.SaveMoney();
+                    FlashBuy.text = ("Bought");
+                    FlashBuy.fontSize = 30;
+
                 }
             }
         }
@@ -141,6 +151,7 @@ public class Buyscreen : MonoBehaviour
             itemInBus.SaveMoney();
             equippedBool.equipNum = 1;
             equippedBool.SaveEquipNum();
+            hasRobertica = 1;
         }
         if (RoberticaBought)
         {
@@ -195,6 +206,54 @@ public class Buyscreen : MonoBehaviour
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);
 
+    }
+    public void Boughtrobert()
+    {
+        if (hasRobertica == 1)
+        {
+            RoberticaBought = true;
+            RoberticaPrice = 0f;
+            RobertBuy.fontSize = 30;
+            if (roberticaON)
+            {
+                robertSkin.SetActive(true);
+                roberticaSkin.SetActive(false);
+                roberticaON = false;
+                equippedBool.equipNum = 0;
+                RobertBuy.text = "Equip";
+                equippedBool.SaveEquipNum();
+            }
+            else
+            {
+                robertSkin.SetActive(false);
+                roberticaSkin.SetActive(true);
+                roberticaON = true;
+                equippedBool.equipNum = 1;
+                RobertBuy.text = "Unequip";
+                equippedBool.SaveEquipNum();
+            }
+        }
+    }
+    public void carprice()
+    {
+        carPriceText.text = (carPrice.ToString());
+    }
+    public void SaveInv()
+    {
+        PlayerPrefs.SetInt("HasRobertica", hasRobertica);
+        PlayerPrefs.SetFloat("CarPrice", carPrice);
+        PlayerPrefs.Save();
+    }
+    public void LoadInv()
+    {
+        if (PlayerPrefs.HasKey("HasRobertica"))
+        {
+            hasRobertica = PlayerPrefs.GetInt("HasRobertica");
+        }
+        if (PlayerPrefs.HasKey("CarPrice"))
+        {
+            carPrice = PlayerPrefs.GetFloat("CarPrice");
+        }
     }
 }
 
