@@ -7,7 +7,7 @@ using TMPro;
 public class Dageindig : MonoBehaviour
 {
     public TMP_Text text; // Sleep hier je Text component naartoe in de Inspector
-    public float timeRemaining = 3 * 60; // 7 minuten in seconden
+    public float timeRemaining = 3 * 60; // 3 minuten in seconden
     private bool timerIsRunning = false;
 
     void Start()
@@ -34,6 +34,12 @@ public class Dageindig : MonoBehaviour
                 timerIsRunning = false;
                 SwitchScene();
             }
+        }
+
+        // Check if the 'P' key is pressed
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SwitchScene();
         }
     }
 
