@@ -11,7 +11,7 @@ public class RobertticaSpawn : MonoBehaviour
     void Start()
     {
         // Load equipNum from PlayerPrefs on start
-        equipNum = PlayerPrefs.GetInt("EquipNumber", 0); // Default value is 0 if not set
+        loadequipnum();
 
         // Update objects based on equipNum
         if (equipNum == 1)
@@ -32,7 +32,13 @@ public class RobertticaSpawn : MonoBehaviour
         PlayerPrefs.SetInt("EquipNumber", equipNum);
         PlayerPrefs.Save(); // Save PlayerPrefs to disk
     }
-
+    public void loadequipnum()
+    {
+        if (PlayerPrefs.HasKey("EquipNumber"))
+        {
+            equipNum = PlayerPrefs.GetInt("EquipNumber");
+        }
+    }
     // Other methods in your class
     // ...
 }

@@ -20838,7 +20838,7 @@ MonoBehaviour:
   chasing: 0
   jumped: 0
   deathScreen: {fileID: 6040483491342562592}
-  money: {fileID: 0}
+  money: {fileID: 1765223590}
 --- !u!195 &1094320760
 NavMeshAgent:
   m_ObjectHideFlags: 0

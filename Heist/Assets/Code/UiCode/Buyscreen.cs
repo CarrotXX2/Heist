@@ -95,14 +95,20 @@ public class Buyscreen : MonoBehaviour
         FlashLight.SetActive(true);
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);
-        if (!zaklamp.HasBought && itemInBus.money >= FlashPrice)
+        if (zaklamp.HasBought == 0)
         {
-            zaklamp.HasBought = true;
-            itemInBus.money -= FlashPrice;
-            infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought ? "Yes" : "No");
-            AudioSource.PlayClipAtPoint(buySound, car.transform.position);
-            itemInBus.SaveMoney();
+            if (itemInBus.money >= FlashPrice)
+            {
+                {
+                    zaklamp.HasBought = 1;
+                    itemInBus.money -= FlashPrice;
+                    infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought == 1 ? "Yes" : "No");
+                    AudioSource.PlayClipAtPoint(buySound, car.transform.position);
+                    itemInBus.SaveMoney();
+                }
+            }
         }
+       
         else
         {
             AudioSource.PlayClipAtPoint(deneidSound, car.transform.position);
@@ -112,7 +118,7 @@ public class Buyscreen : MonoBehaviour
     public void InfoZaklamp()
     {
         FlashLight.SetActive(true);
-        infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought ? "Yes" : "No");
+        infoHolder.text = "A flashlight so you don't have to stumble in the dark.\nOwned: " + (zaklamp.HasBought == 1 ? "Yes" : "No");
         car.SetActive(false);
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);

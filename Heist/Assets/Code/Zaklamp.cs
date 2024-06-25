@@ -6,8 +6,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class Zaklamp : MonoBehaviour
 {
     public Light flashlight;
-    public bool HasBought = false;
-
+    public int HasBought;
     void Start()
     {
         flashlight.enabled = false;
@@ -15,9 +14,15 @@ public class Zaklamp : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && HasBought)
+
+        if (Input.GetKeyDown(KeyCode.F) && HasBought == 1)
         {
             flashlight.enabled = !flashlight.enabled;
         }
+    }
+
+    public void SaveFlash()
+    { 
+     
     }
 }

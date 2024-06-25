@@ -23,7 +23,7 @@ public class PickUp : MonoBehaviour
 
     private void Start()
     {
-
+        
     }
     void Update()
     {
@@ -50,9 +50,10 @@ public class PickUp : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.G))
         {
-            if (dropped == false)
+            if (hasBeenPickedUp)
             {
                 dropped = true;
+                hasBeenPickedUp = false;
                 GameObject objectToDrop = GameObject.Find(objectName);
                 Rigidbody rigidobj = objectToDrop.GetComponent<Rigidbody>();
                 rigidobj.isKinematic = false;
@@ -63,9 +64,10 @@ public class PickUp : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.T))
         {
-            if (dropped == false)
+            if (hasBeenPickedUp)
             {
                 dropped = true;
+                hasBeenPickedUp = false;
                 GameObject objectToDrop = GameObject.Find(objectName);
                 Rigidbody rigidobj = objectToDrop.GetComponent<Rigidbody>();
                 col.enabled = true;
