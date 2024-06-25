@@ -9,7 +9,7 @@ public class RobertAnimatie : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     public float attackRange = 2f;
-    public float komdanr = 60f;
+    public float komdanr = 10f;
 
     private void Start()
     {
