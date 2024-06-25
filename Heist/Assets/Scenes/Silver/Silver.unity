@@ -5575,6 +5575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2449049918865795261, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
         type: 3}
+      propertyPath: pickUp
+      value: 
+      objectReference: {fileID: 8300000, guid: 098eb209e14af7a43bf2fbd350e45f35, type: 3}
+    - target: {fileID: 2449049918865795261, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
+        type: 3}
       propertyPath: doorLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -28042,9 +28047,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToRotate: {fileID: 4207549117536540633}
-  rotationSpeed: 1
-  isLookingAtFridge: 0
-  fridge: {fileID: 0}
+  rotationSpeed: 3
+  fridge: {fileID: 1448887753346289344}
 --- !u!1 &1519815764
 GameObject:
   m_ObjectHideFlags: 0
@@ -56095,7 +56099,7 @@ GameObject:
   - component: {fileID: 8010252909619685655}
   m_Layer: 0
   m_Name: Cube.163
-  m_TagString: Untagged
+  m_TagString: Fridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58629,13 +58633,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5729676575204888795}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9968336, z: -0, w: -0.07951581}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 8.214151, y: 0.77575177, z: 7.0975866}
   m_LocalScale: {x: 0.6464501, y: 0.64645, z: 0.6464501}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -189.121, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &4209327508447300591
 GameObject:
   m_ObjectHideFlags: 0
@@ -72918,5 +72922,5 @@ SceneRoots:
   - {fileID: 1375521560}
   - {fileID: 1846147995}
   - {fileID: 1130086084}
-  - {fileID: 1448887753346289344}
   - {fileID: 4207549117536540633}
+  - {fileID: 1448887753346289344}
