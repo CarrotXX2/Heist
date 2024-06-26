@@ -9134,6 +9134,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Speler
       objectReference: {fileID: 0}
+    - target: {fileID: 1268688656647395387, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
+        type: 3}
+      propertyPath: swayAmount
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268688656647395387, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
+        type: 3}
+      propertyPath: isSprinting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268688656647395387, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
+        type: 3}
+      propertyPath: shakeAmount
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268688656647395387, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1832956455}
+    - target: {fileID: 1268688656647395387, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
+        type: 3}
+      propertyPath: shakeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268688656647395387, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
+        type: 3}
+      propertyPath: idleSwayAmount
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 2159077683998508889, guid: fbf1ecc1d00159d40ab93fa51a4a0a4d,
         type: 3}
       propertyPath: pauseMenuUI
