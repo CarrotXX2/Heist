@@ -999,6 +999,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: robertica
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2cf413a87bd6f14abb26bd1151b10df,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2910731850100840625, guid: a2cf413a87bd6f14abb26bd1151b10df,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2056,7 +2061,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &913821212
+--- !u!114 &913821218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2065,14 +2070,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 913821206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ec2a00b1126b87468e8bfc1d7d9a2c5, type: 3}
+  m_Script: {fileID: 11500000, guid: b717932675e26784bb84b69574efa547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1481012809}
-  agent: {fileID: 0}
-  animator: {fileID: 0}
-  attackRange: 3
-  komdanr: 60
+  attackRange: 1
 --- !u!1 &1075724078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5280399584855277917, guid: f725e3fa076ff5d4382354bad4cd80c4,
@@ -2916,7 +2918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1481012809}
-  animRange: 5
   attackRange: 0.5
 --- !u!95 &1368329408
 Animator:
@@ -3025,7 +3026,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1481012809}
-  animRange: 5
   attackRange: 3
 --- !u!1 &1396918146
 GameObject:
@@ -4816,6 +4816,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1231565548461818963, guid: abb90a18e548d284b8a95d418ebca62f,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231565548461818963, guid: abb90a18e548d284b8a95d418ebca62f,
+        type: 3}
       propertyPath: m_TagString
       value: ai
       objectReference: {fileID: 0}
@@ -4950,7 +4955,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1231565548461818963, guid: abb90a18e548d284b8a95d418ebca62f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 913821212}
+      addedObject: {fileID: 913821218}
   m_SourcePrefab: {fileID: 100100000, guid: abb90a18e548d284b8a95d418ebca62f, type: 3}
 --- !u!114 &1136518319837177400 stripped
 MonoBehaviour:
