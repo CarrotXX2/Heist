@@ -7,7 +7,12 @@ public class SceneLoader3 : MonoBehaviour
 {
     public void playclicked()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Silver");
 
+    }
+    public void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 }
