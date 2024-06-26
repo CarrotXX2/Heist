@@ -3,59 +3,90 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RoberticaAnimatie : MonoBehaviour
+public class AIAnimationController : MonoBehaviour
 {
-    public Transform rplayer;
-    private NavMeshAgent ragent;
-    private Animator ranimator;
-    public float rattackRange = 4f;
-    public float komdanRange = 7f;
+    public Transform player;
+    private NavMeshAgent agent;
+    private Animator animator;
+    public float animRange = 5f;
+    public float attackRange = 0.5f;
 
     private bool isAttacking = false;
-    private bool isInKomdanRange = false;
 
     private void Start()
     {
-        ragent = GetComponent<NavMeshAgent>();
-        ranimator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        ragent.destination = rplayer.position;
+        float distance = Vector3.Distance(transform.position, player.position);
 
-        float distance = Vector3.Distance(transform.position, rplayer.position);
-
-        if (distance <= rattackRange && !isAttacking)
+        if (distance <= attackRange && !isAttacking)
         {
-            RAttack();
+            StartAttack();
         }
-        else if (distance <= komdanRange && !isInKomdanRange)
+        else if (distance <= animRange && !isAttacking)
         {
-            KomdanRange();
+            StartAnimation();
+        }
+        else if (distance > animRange)
+        {
+            ResetStates();
+        }
+
+        // Update the agent's destination
+        agent.destination = player.position;
+
+        // Ensure the walking animation is playing if not attacking or in other animation
+        if (!isAttacking && distance > animRange)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
     }
 
-    void RAttack()
+    void StartAttack()
     {
         isAttacking = true;
-        isInKomdanRange = false;
-        ragent.isStopped = true;
-        ranimator.SetTrigger("RAttack");
+        agent.isStopped = true;
+        animator.SetTrigger("Attack");
     }
 
-    void KomdanRange()
-    {
-        isInKomdanRange = true;
-        isAttacking = false;
-        ranimator.SetTrigger("komdanRange");
-    }
-
-    public void ResetAttackState()
+    void StartAnimation()
     {
         isAttacking = false;
-        isInKomdanRange = false;
-        ragent.isStopped = false;
+        agent.isStopped = true;
+        animator.SetTrigger("Animation");
     }
 
+    void ResetStates()
+    {
+        isAttacking = false;
+        agent.isStopped = false;
+        animator.ResetTrigger("Attack");
+        animator.ResetTrigger("Animation");
+    }
+
+    // Call this method at the end of the attack animation via Animation Event
+    public void OnAttackAnimationEnd()
+    {
+        isAttacking = false;
+        agent.isStopped = false;
+        animator.ResetTrigger("Attack");
+        animator.SetBool("isWalking", true);
+    }
+
+    // Call this method at the end of the other animation via Animation Event
+    public void OnAnimationEnd()
+    {
+        isAttacking = false;
+        agent.isStopped = false;
+        animator.ResetTrigger("Animation");
+        animator.SetBool("isWalking", true);
+    }
 }
