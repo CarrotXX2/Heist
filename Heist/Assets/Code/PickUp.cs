@@ -106,7 +106,7 @@ public class PickUp : MonoBehaviour
                 {
                     if (hit.transform.gameObject.CompareTag("Bus1"))
                     {
-                        SceneManager.LoadScene("Silver");
+                        SceneManager.LoadScene("SampleScene");
                     }
                 }
             }
