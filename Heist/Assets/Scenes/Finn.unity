@@ -1038,6 +1038,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1368329407}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2cf413a87bd6f14abb26bd1151b10df,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1368329413}
     - targetCorrespondingSourceObject: {fileID: -6340493040260428802, guid: a2cf413a87bd6f14abb26bd1151b10df,
         type: 3}
       insertIndex: -1
@@ -2065,6 +2069,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1481012809}
+  agent: {fileID: 0}
+  animator: {fileID: 0}
   attackRange: 3
   komdanr: 60
 --- !u!1 &1075724078 stripped
@@ -2909,9 +2915,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b717932675e26784bb84b69574efa547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rplayer: {fileID: 1481012809}
-  rattackRange: 3
-  komdanRange: 7
+  player: {fileID: 1481012809}
+  animRange: 5
+  attackRange: 0.5
 --- !u!95 &1368329408
 Animator:
   serializedVersion: 5
@@ -3006,6 +3012,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1368329413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368329406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b717932675e26784bb84b69574efa547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1481012809}
+  animRange: 5
+  attackRange: 3
 --- !u!1 &1396918146
 GameObject:
   m_ObjectHideFlags: 0
