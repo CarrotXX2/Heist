@@ -41,6 +41,7 @@ public class Buyscreen : MonoBehaviour
         LoadInv();
         Boughtrobert();
         carprice();
+        BoughtFlash();
         
         FlashLight.SetActive(false);
         car.SetActive(false);
@@ -237,6 +238,14 @@ public class Buyscreen : MonoBehaviour
     public void carprice()
     {
         carPriceText.text = (carPrice.ToString());
+    }
+    public void BoughtFlash()
+    {
+        if (zaklamp.HasBought == 1)
+        {
+            FlashBuy.text = ("Bought");
+            FlashBuy.fontSize = 30;
+        }
     }
     public void SaveInv()
     {
