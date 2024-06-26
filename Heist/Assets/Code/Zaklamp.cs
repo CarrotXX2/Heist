@@ -10,6 +10,7 @@ public class Zaklamp : MonoBehaviour
     void Start()
     {
         flashlight.enabled = false;
+        loadflash();
     }
 
     void Update()
@@ -19,10 +20,19 @@ public class Zaklamp : MonoBehaviour
         {
             flashlight.enabled = !flashlight.enabled;
         }
+        SaveFlash();
     }
 
     public void SaveFlash()
-    { 
-     
+    {
+        PlayerPrefs.SetInt("HasBought", HasBought);
+        PlayerPrefs.Save();
+    }
+    public void loadflash()
+    {
+        if (PlayerPrefs.HasKey("HasBought"))
+        {
+            HasBought = PlayerPrefs.GetInt("HasBought");
+        }
     }
 }

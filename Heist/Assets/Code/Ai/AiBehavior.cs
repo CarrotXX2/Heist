@@ -9,14 +9,13 @@ using UnityEngine.Animations;
 public class AiBehavior : MonoBehaviour
 {
     public Transform player; // Reference to the player
-    public float chaseDistance = 11f; // Distance at which the neighbor will start chasing the player
+    public float chaseDistance = 1f; // Distance at which the neighbor will start chasing the player
     public float wanderRadius = 5f; // Radius for random wandering
-    public float sitChance = 1f; // Chance to sit down when entering a couch area
-    public float walkToCouchChance = 0.1f; // Chance to walk to the couch during wandering
-    public float attackRange = 2;
+    public float sitChance = 0.1f; // Chance to sit down when entering a couch area
+    public float walkToCouchChance = 0.2f; // Chance to walk to the couch during wandering
+    public float attackRange = 0.5f;
     public Transform playerCamera;
     public MoveMent movement;
-
 
     private NavMeshAgent agent;
     private Vector3 wanderTarget;
@@ -36,7 +35,7 @@ public class AiBehavior : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         wanderTarget = transform.position;
-        chasing = false;    
+        chasing = false;
 
         // Find all couches in the scene
         foreach (GameObject couch in GameObject.FindGameObjectsWithTag("Couch"))
@@ -47,11 +46,11 @@ public class AiBehavior : MonoBehaviour
 
     void Update()
     {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
         if (isSitting)
         {
             // Even when sitting, check if the player is within chase distance
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
             if (distanceToPlayer <= chaseDistance)
             {
                 StopAllCoroutines(); // Stop any sitting-related coroutines
@@ -62,27 +61,35 @@ public class AiBehavior : MonoBehaviour
         }
         else
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
             if (distanceToPlayer <= chaseDistance)
             {
                 ChasePlayer();
             }
             else
             {
-                Wander();
+                if (chasing)
+                {
+                    chasing = false;
+                    agent.ResetPath(); // Clear the current path
+                }
+
+                if (!agent.hasPath || agent.remainingDistance < 0.5f)
+                {
+                    Wander();
+
+                    // Randomly decide to sit down if near a couch
+                    if (isNearCouch && Random.value < sitChance * Time.deltaTime)
+                    {
+                        StartCoroutine(SitDown());
+                    }
+                }
             }
 
-            // Randomly decide to sit down if near a couch
-            if (isNearCouch && Random.value < sitChance * Time.deltaTime)
-            {
-                StartCoroutine(SitDown());
-            }
             if (distanceToPlayer <= attackRange)
             {
-               playerCamera.LookAt(robertHead.transform.position);
+                playerCamera.LookAt(robertHead.transform.position);
                 agent.speed = 0f;
-                if (jumped == false)
+                if (!jumped)
                 {
                     jumped = true;
                     AudioSource.PlayClipAtPoint(DontMess, robertHead.transform.position);
@@ -90,7 +97,6 @@ public class AiBehavior : MonoBehaviour
                     deathScreen.Death();
                     movement.death();
 
-                   
                     if (money.money >= 500f)
                     {
                         money.money -= 500f;
@@ -100,7 +106,6 @@ public class AiBehavior : MonoBehaviour
         }
 
         UpdateRotation();
-      
     }
 
     void ChasePlayer()
@@ -115,7 +120,6 @@ public class AiBehavior : MonoBehaviour
 
     void Wander()
     {
-        chasing = false;
         if (!agent.hasPath || agent.remainingDistance < 0.5f)
         {
             if (Random.value < walkToCouchChance && couches.Count > 0)
@@ -139,7 +143,6 @@ public class AiBehavior : MonoBehaviour
         while (agent.pathPending || agent.remainingDistance > 0.5f)
         {
             yield return null;
-            walkToCouchChance = 1f;
         }
 
         // Call the SitDown coroutine when reaching the couch
@@ -193,4 +196,3 @@ public class AiBehavior : MonoBehaviour
         walkToCouchChance = 0.1f;
     }
 }
-
