@@ -3195,7 +3195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rplayer: {fileID: 1519565598}
-  rattackRange: 2
+  rattackRange: 1
 --- !u!1 &150298989
 GameObject:
   m_ObjectHideFlags: 0
