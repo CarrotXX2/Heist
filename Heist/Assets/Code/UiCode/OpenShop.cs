@@ -14,6 +14,7 @@ public class
     public Canvas shopscreen;
     public bool shopOpen;
     public GameObject player;
+    public Buyscreen buyscreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class
                     shopOpen = true;
                     Cursor.lockState = CursorLockMode.Confined;
                     player.SetActive(false);
+                    buyscreen.EnableCanvasAndButtons();
                 }
             }
         }

@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class Buyscreen : MonoBehaviour
 {
@@ -32,12 +33,16 @@ public class Buyscreen : MonoBehaviour
     public string moneyNumber;
     public RobertticaSpawn equippedBool;
     public int hasRobertica;
+    public Canvas canvas;
 
 
 
     void Start()
     {
-        
+        if (canvas == null)
+        {
+            canvas = GetComponent<Canvas>();
+        }
         LoadInv();
         Boughtrobert();
         carprice();
@@ -206,6 +211,7 @@ public class Buyscreen : MonoBehaviour
         RoberticaBought = false;
         roberticaSkin.SetActive(false);
         robertSkin.SetActive(false);
+        DisableCanvasAndButtons();
 
     }
     public void Boughtrobert()
@@ -264,6 +270,35 @@ public class Buyscreen : MonoBehaviour
             carPrice = PlayerPrefs.GetFloat("CarPrice");
         }
     }
+    public void DisableCanvasAndButtons()
+    {
+        // Set the canvas to inactive
+        canvas.gameObject.SetActive(false);
+
+        // Find all Button components in the canvas
+        Button[] buttons = canvas.GetComponentsInChildren<Button>();
+
+        // Disable each button
+        foreach (Button button in buttons)
+        {
+            button.interactable = false;
+        }
+    }
+    public void EnableCanvasAndButtons()
+    {
+        // Set the canvas to active
+        canvas.gameObject.SetActive(true);
+
+        // Find all Button components in the canvas
+        Button[] buttons = canvas.GetComponentsInChildren<Button>();
+
+        // Enable each button
+        foreach (Button button in buttons)
+        {
+            button.interactable = true;
+        }
+    }
+
 }
 
 
