@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIAnimationController : MonoBehaviour
+public class RoberticaAnimationScript : MonoBehaviour
 {
     public Transform player;
     private NavMeshAgent agent;
