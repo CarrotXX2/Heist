@@ -9,6 +9,7 @@ public class ItemInBus : MonoBehaviour
     public int inventory;
     public int currentInv;
     public bool full = false;
+    public AudioClip inInventory;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class ItemInBus : MonoBehaviour
                 Debug.Log("Money added: " + script.MoneyWorth);
                 Destroy(other.gameObject);
                 currentInv -= 1;
+                AudioSource.PlayClipAtPoint(inInventory, gameObject.transform.position);
             }
         }
     }
