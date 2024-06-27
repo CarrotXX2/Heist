@@ -34,7 +34,7 @@ public class RoberticaAnimationScript : MonoBehaviour
     {
         animator.SetBool("isWalking", false);
         animator.SetTrigger("Attack");
-        agent.isStopped = true;
+        agent.isStopped = false;
     }
 
     void StartWalking()

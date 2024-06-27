@@ -34,7 +34,7 @@ public class RobertAnimationScript : MonoBehaviour
     {
         ranimator.SetBool("isWalking", false);
         ranimator.SetTrigger("Attack");
-        ragent.isStopped = true;
+        ragent.isStopped = false;
     }
 
     void RStartWalking()

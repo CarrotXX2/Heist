@@ -1043,10 +1043,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1368329407}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2cf413a87bd6f14abb26bd1151b10df,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1368329413}
     - targetCorrespondingSourceObject: {fileID: -6340493040260428802, guid: a2cf413a87bd6f14abb26bd1151b10df,
         type: 3}
       insertIndex: -1
@@ -2061,7 +2057,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &913821218
+--- !u!114 &913821223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2070,11 +2066,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 913821206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b717932675e26784bb84b69574efa547, type: 3}
+  m_Script: {fileID: 11500000, guid: f21106b3e37389047896b6bf5ef5b574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1481012809}
-  attackRange: 1
+  rplayer: {fileID: 1481012809}
+  rattackRange: 2
 --- !u!1 &1075724078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5280399584855277917, guid: f725e3fa076ff5d4382354bad4cd80c4,
@@ -2918,7 +2914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1481012809}
-  attackRange: 0.5
+  attackRange: 2
 --- !u!95 &1368329408
 Animator:
   serializedVersion: 5
@@ -3013,20 +3009,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1368329413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368329406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b717932675e26784bb84b69574efa547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1481012809}
-  attackRange: 3
 --- !u!1 &1396918146
 GameObject:
   m_ObjectHideFlags: 0
@@ -4955,7 +4937,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1231565548461818963, guid: abb90a18e548d284b8a95d418ebca62f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 913821218}
+      addedObject: {fileID: 913821223}
   m_SourcePrefab: {fileID: 100100000, guid: abb90a18e548d284b8a95d418ebca62f, type: 3}
 --- !u!114 &1136518319837177400 stripped
 MonoBehaviour:
