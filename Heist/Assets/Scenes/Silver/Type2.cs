@@ -1,7 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine;
-using TMPro;
 using System.Collections;
 
 public class Type2 : MonoBehaviour

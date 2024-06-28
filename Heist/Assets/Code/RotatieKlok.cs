@@ -4,6 +4,8 @@ using System.Collections;
 
 public class RotatieKlok : MonoBehaviour
 {
+    public int delay;
+
     private float duration = 3.0f; // De tijdsduur van de rotatie in seconden
     private Quaternion startRotation;
     private Quaternion endRotation;
@@ -13,7 +15,7 @@ public class RotatieKlok : MonoBehaviour
     {
         startRotation = transform.rotation;
         endRotation = Quaternion.Euler(-90, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        StartCoroutine(GoToMainMenuAfterDelay(5f)); // Start coroutine to switch scene after 5 seconds
+        StartCoroutine(GoToMainMenuAfterDelay(8f)); // Change delay to 8 seconds
     }
 
     void Update()
