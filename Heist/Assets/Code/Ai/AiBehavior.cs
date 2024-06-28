@@ -123,7 +123,7 @@ public class AiBehavior : MonoBehaviour
         }
     }
 
-    void Wander()
+    public void Wander()
     {
         if (!agent.hasPath || agent.remainingDistance < 0.5f)
         {

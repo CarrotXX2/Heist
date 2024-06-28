@@ -7,6 +7,7 @@ public class RobertAnimationScript : MonoBehaviour
     private NavMeshAgent ragent;
     private Animator ranimator;
     public float rattackRange = 0.5f;
+    public AiBehavior beh;
 
     private void Start()
     {
@@ -26,8 +27,12 @@ public class RobertAnimationScript : MonoBehaviour
         {
             RStartWalking();
         }
-
-        ragent.destination = rplayer.position;
+        if (beh.chasing == true)
+        { ragent.destination = rplayer.position; }
+        else 
+        { 
+            beh.Wander();
+        }
     }
 
     void RStartAttack()

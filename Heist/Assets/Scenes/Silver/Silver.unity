@@ -3572,6 +3572,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rplayer: {fileID: 1519565598}
   rattackRange: 1
+  beh: {fileID: 149828054}
+--- !u!114 &149828054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6658889222777009983, guid: 98606ca439e6a334a9e915a2c7a51855,
+    type: 3}
+  m_PrefabInstance: {fileID: 983016722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149828046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e22f2cf4fbecf46b8a487d306473b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &150298989
 GameObject:
   m_ObjectHideFlags: 0
@@ -23548,10 +23561,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4007481512625588513, guid: 98606ca439e6a334a9e915a2c7a51855,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 983016728}
-    - targetCorrespondingSourceObject: {fileID: 4007481512625588513, guid: 98606ca439e6a334a9e915a2c7a51855,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 983016731}
   m_SourcePrefab: {fileID: 100100000, guid: 98606ca439e6a334a9e915a2c7a51855, type: 3}
 --- !u!1 &983016723 stripped
@@ -23581,20 +23590,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &983016728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983016723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21106b3e37389047896b6bf5ef5b574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rplayer: {fileID: 1519565598}
-  rattackRange: 0.5
 --- !u!195 &983016731
 NavMeshAgent:
   m_ObjectHideFlags: 0
