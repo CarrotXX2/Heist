@@ -46,6 +46,10 @@ public class AiBehavior : MonoBehaviour
 
     void Update()
     {
+        if (!chasing)
+        {
+            Wander();
+        }
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (isSitting)
@@ -71,6 +75,7 @@ public class AiBehavior : MonoBehaviour
                 {
                     chasing = false;
                     agent.ResetPath(); // Clear the current path
+                    Wander();
                 }
 
                 if (!agent.hasPath || agent.remainingDistance < 0.5f)
